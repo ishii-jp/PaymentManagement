@@ -15,13 +15,14 @@ class CreatePaymentSumsTable extends Migration
     {
         Schema::create('payment_sums', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id')->comment('入力者のユーザーID');
+            $table->integer('user_id')->comment('ユーザーID');
+            $table->integer('category_id')->nullable()->comment('カテゴリーID 全てのカテゴリー合計金額のレコードはnull');
             $table->integer('year')->comment('年');
             $table->integer('month')->comment('月');
             $table->integer('total_price')->comment('合計金額');
             $table->timestamps();
 
-            $table->unique(['user_id', 'year', 'month']);
+            $table->unique(['user_id', 'category_id', 'year', 'month']);
         });
     }
 
