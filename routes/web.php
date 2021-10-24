@@ -23,4 +23,3 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 Route::get('payment', [PaymentController::class, 'index'])->name('payment');
-
